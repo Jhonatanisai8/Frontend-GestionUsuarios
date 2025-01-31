@@ -4,31 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestion de Empleados</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleMenu.css">
     <link rel="stylesheet" href="css/styleHeader.css">
     <link rel="stylesheet" href="css/styleModel.css">
     <script>
-        function updatemenu() {
-            if (document.getElementById('responsive-menu').checked == true) {
-                document.getElementById('menu').style.borderBottomRightRadius = '0';
-                document.getElementById('menu').style.borderBottomLeftRadius = '0';
+        function agregarCliente() {
+            let htmlModal = document.getElementById("modal");
+            if (htmlModal) {
+                htmlModal.classList.add("opened");
             } else {
-                document.getElementById('menu').style.borderRadius = '10px';
-            }
-        } 
-    </script>
-    <script>
-        //You may use vanilla JS, I just chose jquery
-        $('.openmodale').click(function (e) {
-            e.preventDefault();
-            $('.modale').addClass('opened');
-        });
-        $('.closemodale').click(function (e) {
-            e.preventDefault();
-            $('.modale').removeClass('opened');
-        });
+                console.error("El elemento con id 'modal' no existe.");
+            };
+        }
+        function cerrarModal() {
+            let htmlModal = document.getElementById("modal");
+            if (htmlModal) {
+                htmlModal.classList.remove("opened");
+            } else {
+                console.error("El elemento con id 'modal' no existe.");
+            };
+        }
     </script>
 </head>
 
@@ -59,7 +56,7 @@
             <li><a href='http://'>Contact Us</a></li>
         </ul>
     </nav>
-    <a href="#" class="button">Agregar <b>+</b></a>
+    <a onclick="agregarCliente()" class="button" href="#">Agregar <b>+</b></a>
     <table id="customers">
         <tr>
             <th>Nombres</th>
@@ -125,11 +122,11 @@
     </table>
 
     <!-- Modal -->
-    <div class="modale" aria-hidden="true">
+    <div id="modal" class="modale apened" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-header">
                 <h2>Please Login</h2>
-                <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
+                <a onclick="cerrarModal()" href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
             </div>
             <div class="modal-body">
                 <input type="text" name="u" placeholder="User" size="20" /><br>
