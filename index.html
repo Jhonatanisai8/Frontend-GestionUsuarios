@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta "viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de Empleados</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/styleMenu.css"> -->
@@ -35,7 +35,7 @@
 
     <h1>GESTION DE USUARIOS</h1>
     <nav id='menu'>
-        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <input id="nombre" type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
         <ul>
             <li><a href='http://'>Home</a></li>
             <li><a class='dropdown-arrow' href='http://'>Products</a>
@@ -84,14 +84,14 @@
                 <a onclick="cerrarModal()" href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
             </div>
             <div class="modal-body">
-                <input type="text" name="name" placeholder="Nombre" size="20" /><br>
-                <input type="text" name="apellido" placeholder="Apellido" size="20" />
-                <input type="text" name="email" placeholder="Email" size="20" /><br>
-                <input type="text" name="telefeno" placeholder="Telefono" size="20" /><br>
-                <input type="text" name="address" placeholder="Dirección" size="20" /><br>
+                <input id="txtNombre" type="text" placeholder="Nombre" size="20" />
+                <input id="txtApellido" type="text" placeholder="Apellido" size="20" />
+                <input id="txtEmail" type="text" placeholder="Email" size="20" />
+                <input id="txtTelefono" type="text" placeholder="Telefono" size="20" />
+                <input id="txtDireccion" type="text" placeholder="Dirección" size="20" />
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn" id="btn_ingresar">Enviar</a>
+                <a onclick="saveCustumer()" href="#" class="btn" id="btn_ingresar">Enviar</a>
             </div>
         </div>
     </div>

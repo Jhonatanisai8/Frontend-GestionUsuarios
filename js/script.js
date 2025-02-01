@@ -50,3 +50,32 @@ async function deleteCustumer(id) {
         search()
     }
 }
+
+async function saveCustumer() {
+    // datos del formulario 
+    let nombre = document.getElementById("txtNombre").value;
+    let apellido = document.getElementById("txtApellido").value;
+    let email = document.getElementById("txtEmail").value;
+    let telefono = document.getElementById("txtTelefono").value;
+    let direccion = document.getElementById("txtDireccion").value;
+    let data = {
+        // "custumer_id": 3,
+        "firstname": nombre,
+        "lastname": apellido,
+        "email": email,
+        "phone": telefono,
+        "address": direccion
+    }
+    console.log(data)
+    console.log(typeof (data))
+    let url = URL_API + 'custumers'
+    let response = await fetch(url, {
+        "method": 'POST',
+        "body": JSON.stringify(data),
+        "headers": {
+            "Content-Type": 'application/json'
+        }
+    })
+    // search()
+    window.location.reload()
+}
