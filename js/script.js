@@ -16,7 +16,7 @@ async function search() {
     let html = ''
     for (custumer of resultado) {
         // debugger;
-    let row = `
+        let row = `
         <tr>
         <td>${custumer.firstname}</td>
             <td>${custumer.lastname}</td>
@@ -24,12 +24,29 @@ async function search() {
             <td>${custumer.phone}</td>
             <td>${custumer.address}</td>
             <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
+            <button class="button-blue">Modificar</button>
+            <button class="button-red" onclick="deleteCustumer(${custumer.custumer_id})" >Eliminar</button>
                 </td>
         </tr>`
         html = html + row;
     }
 
     document.querySelector('#customers > tbody').outerHTML = html;
+}
+
+async function deleteCustumer(id) {
+    let respuesta = confirm('¿ESTAS SEGURO DE ELIMINARLO?')
+    if (respuesta) {
+        // alert("Se Elimino")
+        console.log(respuesta)
+        let url = URL_API + 'custumers/' + id
+        /*let response =*/
+        await fetch(url, {
+            "method": 'DELETE',
+            "headers": {
+                "Content-Type": 'application/json'
+            }
+        })
+        search()
+    }
 }
