@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de Empleados</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/styleMenu.css">
+    <!-- <link rel="stylesheet" href="css/styleMenu.css"> -->
     <link rel="stylesheet" href="css/styleHeader.css">
     <link rel="stylesheet" href="css/styleModel.css">
+    <script src="js/script.js"></script>
     <script>
         function agregarCliente() {
             let htmlModal = document.getElementById("modal");
@@ -58,75 +59,21 @@
     </nav>
     <a onclick="agregarCliente()" class="button" href="#">Agregar <b>+</b></a>
     <table id="customers">
-        <tr>
-            <th>Nombres</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Telefono</th>
-            <th>Accciones</th>
-        </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>maria@mail.com</td>
-            <td>987654321</td>
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Accciones</th>
+            </tr>
+        </thead>
 
-            <td>
-                <button class="button-red">Eliminar</button>
+        <!-- contiene el cuerpo de toda la tabla -->
+        <tbody>
 
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Berglunds snabbköp</td>
-            <td>Christina Berglund</td>
-            <td>Christina@mail.com</td>
-            <td>987654321</td>
-            <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Francisco@mail.com</td>
-            <td>987654321</td>
-            <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td>maria@mail.com</td>
-            <td>987654321</td>
-            <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td>Roland@mail.com</td>
-            <td>987654321</td>
-            <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Königlich Essen</td>
-            <td>Philip Cramer</td>
-            <td>Philip@mail.com</td>
-            <td>987654321</td>
-            <td>
-                <button class="button-red">Eliminar</button>
-                <button class="button-blue">Modificar</button>
-            </td>
-        </tr>
+        </tbody>
     </table>
 
     <!-- Modal -->
@@ -140,8 +87,8 @@
                 <input type="text" name="name" placeholder="Nombre" size="20" /><br>
                 <input type="text" name="apellido" placeholder="Apellido" size="20" />
                 <input type="text" name="email" placeholder="Email" size="20" /><br>
-
                 <input type="text" name="telefeno" placeholder="Telefono" size="20" /><br>
+                <input type="text" name="address" placeholder="Dirección" size="20" /><br>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn" id="btn_ingresar">Enviar</a>
