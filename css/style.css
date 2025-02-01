@@ -38,11 +38,11 @@ body{
     height: auto;
     width: auto;
     padding-top: 12px;
-    padding-bottom: 12px;
+    padding-bottom: 16px;
     text-align: center;
     color: white;
     border-radius: 1em;
-    border-color: #04AA6D;
+    border-color: #fff;
     letter-spacing: 0.07em;
     font-family: sans-serif;
     font-weight: 100;
