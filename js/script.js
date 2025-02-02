@@ -14,6 +14,10 @@ function cerrarModal() {
         console.error("El elemento con id 'modal' no existe.");
     };
 }
+function agregar() {
+    clean()
+    abrirFormulario()
+}
 
 const URL_API = 'http://127.0.0.1:8080/api/'
 document.addEventListener("DOMContentLoaded", search);
@@ -76,7 +80,7 @@ async function updateCustomer(custumer_id) {
     abrirFormulario();
     // buscamos el objeto con el id pasado por parametro
     let customer = customers.find(x => x.custumer_id == custumer_id);
-    
+
     // llenamos los campos del formulario con la información del cliente
     document.getElementById('txtId').value = customer.custumer_id;
     document.getElementById('txtNombre').value = customer.firstname;
@@ -92,7 +96,7 @@ async function saveCustumer() {
     let email = document.getElementById("txtEmail").value;
     let telefono = document.getElementById("txtTelefono").value;
     let direccion = document.getElementById("txtDireccion").value;
-    
+
     var data = {
         "firstname": nombre,
         "lastname": apellido,
@@ -101,14 +105,14 @@ async function saveCustumer() {
         "address": direccion
     }
 
-    var customerID = document.getElementById("txtId").value; 
+    var customerID = document.getElementById("txtId").value;
     if (customerID != '') {
-        data.custumer_id = customerID;  
+        data.custumer_id = customerID;
     }
-    
-    let url = URL_API + 'custumers';  
-    let method = customerID ? 'PUT' : 'POST';  
-    
+
+    let url = URL_API + 'custumers';
+    let method = customerID ? 'PUT' : 'POST';
+
     let response = await fetch(url, {
         "method": method,
         "body": JSON.stringify(data),
@@ -125,3 +129,11 @@ async function saveCustumer() {
     }
 }
 
+function clean() {
+    document.getElementById('txtId').value = ''
+    document.getElementById('txtNombre').value = ''
+    document.getElementById('txtApellido').value = ''
+    document.getElementById('txtEmail').value = ''
+    document.getElementById('txtTelefono').value = ''
+    document.getElementById('txtDireccion').value = ''
+}
